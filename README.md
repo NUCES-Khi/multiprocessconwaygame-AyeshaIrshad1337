@@ -23,10 +23,10 @@ Breifly explain how did you planned to approach the problem
 4- Asked user for generation  
 5- Created pipes for communciation "**pipes"  
 6- Fork for each row and update generations concurrently  
-   -i- In each child process close the read end of pipe and updated the generation for the row and write the updated row in the pipe
-   -ii- Created a loop for Waiting for all child process to be completed
-   -iii- Readed the updated grid from pipes
-   -iv- Copy new grid to original for next generation  
+   |-i- In each child process close the read end of pipe and updated the generation for the row and write the updated row in the pipe|  
+   |-ii- Created a loop for Waiting for all child process to be completed|  
+   |-iii- Readed the updated grid from pipes|  
+   |-iv- Copy new grid to original for next generation|    
 7- Print the final generated grid
 8- free allocated memory
 ## Problems Faced
