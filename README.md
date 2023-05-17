@@ -9,13 +9,13 @@
 This program is an implementation of John Conway's Game of Life using multiple processes to parallelize the computation of each generation. The program initializes a game board with random values, forks multiple child processes, and simulates a portion of the game board in each child process. Each child process communicates with the parent process using pipes to synchronize after each generation. The parent process waits for all child processes to finish before exiting
 ## Approach
 Breifly explain how did you planned to approach the problem  
-```
-The main function first initializes the game board by creating a shared memory segment using shmget and attaching it to the address space of the current process using shmat. It then creates an array of pipes for inter-process communication using pipe.
 
-It then forks NUM_PROCESSES child processes and assigns each process a portion of the game board to simulate. The child processes call the simulate_board function to simulate their portion of the game board using the rules of the Game of Life. The function applies the rules to each cell in the sub-grid and communicates with the parent process using pipes to synchronize after each generation.
++ The main function first initializes the game board by creating a shared memory segment using shmget and attaching it to the address space of the current process using shmat. It then creates an array of pipes for inter-process communication using pipe.
 
-The parent process waits for all child processes to complete each generation before sending a message to all child processes to proceed to the next generation. After all generations are complete, the parent process waits for all child processes to finish before exiting
-```
++ It then forks NUM_PROCESSES child processes and assigns each process a portion of the game board to simulate. The child processes call the simulate_board function to simulate their portion of the game board using the rules of the Game of Life. The function applies the rules to each cell in the sub-grid and communicates with the parent process using pipes to synchronize after each generation.
+
++ The parent process waits for all child processes to complete each generation before sending a message to all child processes to proceed to the next generation. After all generations are complete, the parent process waits for all child processes to finish before exiting
+
 ### Functions
 |Function Name|Description|
 |-|-|
