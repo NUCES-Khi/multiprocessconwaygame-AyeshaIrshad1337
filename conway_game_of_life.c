@@ -1,3 +1,13 @@
+/**
+* Sir main file me na abhi dakhi ha but i am commenting this above on the section i saw ka mujhai assignment 2 me 0 milay hoi ha tu i updated my roll no here
+ * @defgroup   MAIN main
+ *
+ * @brief      This file implements main. Please Comment you code
+ *
+ * @author     Ayesha Irshad & 21k-4734
+ * 10 april 2023
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
