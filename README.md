@@ -52,17 +52,17 @@ The approach for this problem is as follows:
 + Please use correct English
 + The print_board function takes an int as its argument instead of an int *. It should be changed to void print_board(int *board).
 
-+The print_board function uses single quotes ('') instead of double quotes (" ") to represent a space character. This should be changed to printf("%c ", board[i * BOARD_SIZE + j] ? ' ' : '-');.
++ The print_board function uses single quotes ('') instead of double quotes (" ") to represent a space character. This should be changed to printf("%c ", board[i * BOARD_SIZE + j] ? ' ' : '-');.
 
-+The simulate_board function is called game_of_life when it is called in the main function. This should be changed to simulate_board(board, start_row, end_row, pipe_fd[i]);.
++ The simulate_board function is called game_of_life when it is called in the main function. This should be changed to simulate_board(board, start_row, end_row, pipe_fd[i]);.
 
-+The simulate_board function takes a single int as its last argument instead of an int *. It should be changed to void simulate_board(int *board, int start_row, int end_row, int *pipe_fd).
++ The simulate_board function takes a single int as its last argument instead of an int *. It should be changed to void simulate_board(int *board, int start_row, int end_row, int *pipe_fd).
 
-+The simulate_board function writes to the pipe using the wrong file descriptor. It should use write(pipe_fd[1], &msg, sizeof(msg)); instead of write(pipe_fd[1][1], &msg, sizeof(msg));.
++ The simulate_board function writes to the pipe using the wrong file descriptor. It should use write(pipe_fd[1], &msg, sizeof(msg)); instead of write(pipe_fd[1][1], &msg, sizeof(msg));.
 
-+The simulate_board function reads from the pipe using the wrong file descriptor. It should use read(pipe_fd[0], &msg, sizeof(msg)); instead of read(pipe_fd[0][0], &msg, sizeof(msg));.
++ The simulate_board function reads from the pipe using the wrong file descriptor. It should use read(pipe_fd[0], &msg, sizeof(msg)); instead of read(pipe_fd[0][0], &msg, sizeof(msg));.
 
-+The parent process does not synchronize with the child processes after each generation. This can be done by adding a loop that reads from each child process’s pipe and then writes to it after each generation.
++ The parent process does not synchronize with the child processes after each generation. This can be done by adding a loop that reads from each child process’s pipe and then writes to it after each generation.
 
 ## Online / Chat GPT Help
 Mention where you got help for your assignment and if you used chat gpt (not encouraged) mention the questions you gave and the reply you got that you are using in the assignment.
