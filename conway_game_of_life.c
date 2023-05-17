@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <string.h>
+
 // Function to print the grid
 void printGeneration(int *grid, int n) {
     for (int i = 0; i < n; i++) {
@@ -85,12 +86,14 @@ int main() {
                 write(pipes[row][1], newGrid + row * n, n * sizeof(int));
 
                 exit(0);
-            } else if (pid== -1) {
-            // Error in forking
+            } else if (pid == -1) {
+                // Error in forking
                 printf("Error forking process.\n");
                 exit(1);
             }
-    }    // Wait for all child processes to complete
+        }
+
+        // Wait for all child processes to complete
         for (int row = 0; row < n; row++) {
             wait(NULL);
         }
@@ -112,7 +115,7 @@ int main() {
     free(grid);
     free(newGrid);
     for (int i = 0; i < n; i++) {
-       free(pipes[i]);
+        free(pipes[i]);
     }
     free(pipes);
 
